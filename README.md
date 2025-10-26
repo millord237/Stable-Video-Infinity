@@ -45,7 +45,7 @@ If you think this project is useful, we would really appreciate your star ⭐, w
 
 Big, big thanks to @RuneGjerde and @Kijai! If you can’t wait for the official ComfyUI release, try the testing versions of the Shot and Film workflows first with commercial GPUs based on quantization and distll loras: [Here](https://github.com/kijai/ComfyUI-WanVideoWrapper/issues/1519#issuecomment-3447933556). The official one (more stable) might be updated soon. Due to model quantization, the video quality may be affected (Better to try more sampling steps than 4/8).
 
-For SVI-Film, SVI **does not trust the low-level quality of reference images because it was trained to perform image restoration**. So some of the low-level changes you see are the model denoising toward what it considers an error-free directions, not toward the reference image. One minute with 10+ prompts is totally fine; for longer generation you’ll see forgetting of the initial frame (style or content), **the content or imagery won’t get collapse: that’s the biggest difference from WAN.** You can watch our 8-minute Tom & Jerry video from [Bilibili](https://www.bilibili.com/video/BV17UxPz4Ez1/) or [Youtube](https://www.youtube.com/watch?v=xEgVF3fAZ5o): the later animation style matches the style in our training dataset (the older Tom version), not the first frame. If you find issues in long generation, please let us know, and we wil help to fix. For the Shot version there is some probability of reverting to ref-frame-like state; we will address that in future fixes.
+For SVI-Film, SVI **does not trust the low-level quality of reference images because it was trained to perform image restoration**. So some of the low-level changes you see are the model denoising toward what it considers an error-free directions, not toward the reference image. One minute with 10+ prompts is totally fine; for longer generation you’ll see forgetting of the initial frame (style or content), **the content or imagery won’t get collapse: that’s the biggest difference from WAN.** You can watch our 8-minute Tom & Jerry video from [Bilibili](https://www.bilibili.com/video/BV17UxPz4Ez1/) or [Youtube](https://www.youtube.com/watch?v=xEgVF3fAZ5o): the later animation style matches the style in our training dataset (the older Tom version), not the first frame. If you find issues in long generation, please let us know, and we wil help to fix. For the Shot version there is some probability of reverting to ref-frame-like state; we will address that in future fixes. Most importantly, please ensure that every clip has different seed.
 
 Thank you for playing with SVI!
 
@@ -57,7 +57,7 @@ Thank you for playing with SVI!
 
 ## 🔥 News
 
-[10-23-2025] The preview of Wan 2.2-5B-SVI (small-gpu friendly) and some tips for custom SVI implementation: See [DevLog](docs/DevLog.md)!  
+[10-23-2025] Preview of Wan 2.2-5B-SVI and some tips for custom SVI implementation: See [DevLog](docs/DevLog.md)!  
 [10-21-2025] The error-banking strategy is optimized, further imporving the stability. See details in [DevLog](docs/DevLog.md)!  
 [10-13-2025] SVI is now fully open-sourced and online!
 
