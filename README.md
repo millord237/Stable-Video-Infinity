@@ -41,11 +41,21 @@ If you think this project is useful, we would really appreciate your star ⭐, w
 
 **📧 Contact**: [wuyang.li@epfl.ch](mailto:wuyang.li@epfl.ch)
 
-### 😀 Important Note for ComfyUI Users
+## 😀 ComfyUI Users
 
-Big, big thanks to @RuneGjerde and @Kijai! If you can’t wait for the official ComfyUI release, try the testing versions of the Shot and Film workflows first with commercial GPUs based on quantization and distll loras: [Here](https://github.com/kijai/ComfyUI-WanVideoWrapper/issues/1519#issuecomment-3447933556). The official one (more stable) might be updated soon. Due to model quantization, the video quality may be affected (Better to try more sampling steps than 4/8). Most importantly, please ensure that every clip has different seed.
+Big, big thanks to @RuneGjerde and @Kijai! If you can’t wait for the official ComfyUI release, try the testing versions of the Shot and Film workflows first with commercial GPUs based on quantization and distll loras: [Here](https://github.com/kijai/ComfyUI-WanVideoWrapper/issues/1519#issuecomment-3447933556). The official one (more stable) might be updated soon. Due to model quantization, the video quality may be affected (Better to try more sampling steps than 4/8). 
 
-For SVI-Film, SVI does not fully trust the low-level quality of reference images because it was trained to perform image restoration, i.e., gradually improving images. So some of the low-level changes you see are the model denoising toward what it considers an error-free directions, not toward the reference image. One minute with 10+ prompts is totally fine; for longer generation you might see some kind of forgetting of the initial frame (style or content), but, most importantly, the content or imagery won’t get collapse: that’s the biggest difference from WAN. You can watch our 8-minute crazy-version Tom & Jerry video from [Bilibili](https://www.bilibili.com/video/BV17UxPz4Ez1/) or [Youtube](https://www.youtube.com/watch?v=xEgVF3fAZ5o): the later animation style matches the style in our training dataset (the older Tom version), not the first framem, and also will never drift! If you find issues in long generation, please let us know, and we wil help to fix. For the Shot version, there is some probability of reverting to ref-frame-like state; we will address that in future fixes. 
+### Some Important To-Checks
+
+- Please ensure that every video clip uses a different seed.
+- SVI-Film uses 5 motion frames for i2v, not 1.
+- SVI-Shot uses 1 motion and 1 frame with VACE-based padding.
+- Use the boat and cat demos for 50s generation and compare them with the [reprodiced ones](https://github.com/kijai/ComfyUI-WanVideoWrapper/issues/1519#issuecomment-3443540666) to verify correctness.
+- SVI-Shot also supports using different text for clips. See [here](https://www.reddit.com/r/StableDiffusion/comments/1oh4q3w/wan21_svishot_lora_long_video_test_1min/).
+
+### More Technical Infomation
+
+For SVI-Film, SVI does not fully trust the low-level quality of reference images because it was trained to perform image restoration, i.e., gradually improving images. So some of the low-level changes you see are the model denoising toward what it considers an error-free directions, not toward the reference image. One minute with 10+ prompts is totally fine; for longer generation you might see some kind of forgetting of the initial frame (style or content), but, most importantly, the content or imagery won’t get collapse: that’s the biggest difference from WAN. You can watch our 8-minute crazy-version Tom & Jerry video from [Bilibili](https://www.bilibili.com/video/BV17UxPz4Ez1/) or [Youtube](https://www.youtube.com/watch?v=xEgVF3fAZ5o): the later animation style matches the style in our training dataset (the older Tom version), not the first frame, and also will never drift! If you find issues in long generation, please let us know, and we wil help to fix. For the Shot version, there is some probability of reverting to ref-frame-like state; we will address that in future fixes. 
 
 Thank you for playing with SVI!
 
