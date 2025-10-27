@@ -48,10 +48,11 @@ Big, big thanks to @RuneGjerde and @Kijai! If you can’t wait for the official 
 ### Some Important To-Checks
 
 - Please ensure that every video clip uses a different seed.
-- SVI-Film uses 5 motion frames for i2v, not 1.
-- SVI-Shot uses 1 motion frame and uses extra VACE-based padding.
-- Use the boat and cat demos for 50s generation and compare them with the [reprodiced ones](https://github.com/kijai/ComfyUI-WanVideoWrapper/issues/1519#issuecomment-3443540666) to verify correctness.
-- SVI-Shot also supports using different text for clips. See [here](https://www.reddit.com/r/StableDiffusion/comments/1oh4q3w/wan21_svishot_lora_long_video_test_1min/).
+- SVI-Film uses 5 motion frames (last 5 frames) for i2v, not 1.
+- SVI-Tom shares the workflow with SVI-Film, but uses 1 motion frame.
+- SVI-Shot uses 1 motion frame (last frame) and uses extra VACE-based padding (the given reference image).
+- Use the boat and cat demos for 50s generation and compare them with the [reproduced ones](https://github.com/kijai/ComfyUI-WanVideoWrapper/issues/1519#issuecomment-3443540666) to verify correctness.
+- SVI-Shot also supports using different text for clips. See [here](https://www.reddit.com/r/StableDiffusion/comments/1oh4q3w/wan21_svishot_lora_long_video_test_1min/). Thanks @Taiwan1912！
 
 ### More Technical Infomation
 
