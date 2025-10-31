@@ -35,7 +35,11 @@ Technical introduction (unofficial): [AI Papers Slop (English)](https://www.yout
 - **Versatile**: Supports diverse in-the-wild generation tasks: multi-scene short films, single‑scene animations, skeleton-/audio-conditioned generation, cartoons, and more.
 - **Efficient**: Only LoRA adapters are tuned, requiring very little training data: anyone can make their own SVI easily.
 
-If you think this project is useful, we would really appreciate your star ⭐, which encourages us to better develop the open-source community! This repository will be continuously maintained. Thank you!
+
+
+You can watch our 8-minute crazy-version Tom & Jerry video from [Bilibili](https://www.bilibili.com/video/BV17UxPz4Ez1/) or [Youtube](https://www.youtube.com/watch?v=xEgVF3fAZ5o). If you think this project is useful, we would really appreciate your star ⭐, which encourages us to better develop the open-source community! This repository will be continuously maintained. Thank you!
+
+
 
 </div>
 
@@ -43,9 +47,17 @@ If you think this project is useful, we would really appreciate your star ⭐, w
 
 ## 😀 ComfyUI Users
 
-Big, big thanks to @RuneGjerde and @Kijai! If you can’t wait for the official ComfyUI release, try the testing versions of the Shot and Film workflows first with commercial GPUs based on quantization and distll loras: [Here](https://github.com/kijai/ComfyUI-WanVideoWrapper/issues/1519#issuecomment-3447933556). The official one (more stable) might be updated soon. Due to model quantization, the video quality may be affected (Better to try more sampling steps than 4/8). 
+### Official ComfyUI
+
+We've recently discovered that some users have been incorrectly using SVI workflows. We apologize for any confusion. Please note that **SVI LoRA cannot directly use the original Wan 2.1 workflow** - it requires modified padding settings. 
+
+**Please use our official workflow**: `Stable-Video-Infinity/comfyui_workflow`, which support independent prompts for each video clip. Big thanks to @RuneGjerde, @Kijai, and @Taiwan1912!
+
+Due to the significant impact of quantization and step distillation on the SVI-Film workflow, we currently only open-source the SVI-Shot workflow. Using our official workflow with the test image will generate infinite-length videos without dirfting and forgetting like this: <img src="assets/test.png" alt="Test"> <video src="assets/SVI-Shot-StreamingPrompt.mp4" alt="Test"> 
 
 ### Some Important To-Checks
+Big, big thanks to @RuneGjerde and @Kijai! If you can’t wait for the official ComfyUI release, try the testing versions of the Shot and Film workflows first with commercial GPUs based on quantization and distll loras: [Here](https://github.com/kijai/ComfyUI-WanVideoWrapper/issues/1519#issuecomment-3447933556). The official one (more stable) might be updated soon. Due to model quantization, the video quality may be affected (Better to try more sampling steps than 4/8). 
+
 
 - Please ensure that every video clip uses a different seed.
 - SVI-Film uses 5 motion frames (last 5 frames) for i2v, not 1.
@@ -54,20 +66,15 @@ Big, big thanks to @RuneGjerde and @Kijai! If you can’t wait for the official 
 - Use the boat and cat demos for 50s generation and compare them with the [reproduced ones](https://github.com/kijai/ComfyUI-WanVideoWrapper/issues/1519#issuecomment-3443540666) to verify correctness.
 - SVI-Shot also supports using different text for clips. See [here](https://www.reddit.com/r/StableDiffusion/comments/1oh4q3w/wan21_svishot_lora_long_video_test_1min/). Thanks @Taiwan1912！
 
-### More Technical Infomation
+<!-- ### More Technical Infomation
 
-For SVI-Film, SVI does not fully trust the low-level quality of reference images because it was trained to perform image restoration, i.e., gradually improving images. So some of the low-level changes you see are the model denoising toward what it considers an error-free directions, not toward the reference image. One minute with 10+ prompts is totally fine; for longer generation you might see some kind of forgetting of the initial frame (style or content), but, most importantly, the content or imagery won’t get collapse: that’s the biggest difference from WAN. You can watch our 8-minute crazy-version Tom & Jerry video from [Bilibili](https://www.bilibili.com/video/BV17UxPz4Ez1/) or [Youtube](https://www.youtube.com/watch?v=xEgVF3fAZ5o): the later animation style matches the style in our training dataset (the older Tom version), not the first frame, and also will never drift! If you find issues in long generation, please let us know, and we wil help to fix. For the Shot version, there is some probability of reverting to ref-frame-like state; we will address that in future fixes. 
+For SVI-Film, SVI does not fully trust the low-level quality of reference images because it was trained to perform image restoration, i.e., gradually improving images. So some of the low-level changes you see are the model denoising toward what it considers an error-free directions, not toward the reference image. One minute with 10+ prompts is totally fine; for longer generation you might see some kind of forgetting of the initial frame (style or content), but, most importantly, the content or imagery won’t get collapse: that’s the biggest difference from WAN. You can watch our 8-minute crazy-version Tom & Jerry video from [Bilibili](https://www.bilibili.com/video/BV17UxPz4Ez1/) or [Youtube](https://www.youtube.com/watch?v=xEgVF3fAZ5o): the later animation style matches the style in our training dataset (the older Tom version), not the first frame, and also will never drift! If you find issues in long generation, please let us know, and we wil help to fix. For the Shot version, there is some probability of reverting to ref-frame-like state; we will address that in future fixes.  -->
 
 Thank you for playing with SVI!
 
-
-<!-- We just identified major issues in the third-party ComfyUI workflow implementation (the incompatibility between LoRA and quantized models, padding and motion frame), leading to the total failure of SVI ([Issue #7](https://github.com/vita-epfl/Stable-Video-Infinity/issues/7) and [Issue #10](https://github.com/vita-epfl/Stable-Video-Infinity/issues/10)). We've contacted the ComfyUI team. We are working on fixing them — please stay tuned. Thank you for your understanding! Moer details are [here](https://github.com/kijai/ComfyUI-WanVideoWrapper/issues/1519).  -->
-
-<!-- **If possible, please use our inference script in this repo at first.** We will update the fixed ComfyUI as soon as possible. Thank you so much. -->
-
-
 ## 🔥 News
 
+[10-31-2025] Official SVI-Shot ComfUI workflow
 [10-23-2025] Preview of Wan 2.2-5B-SVI and some tips for custom SVI implementation: See [DevLog](docs/DevLog.md)!  
 [10-21-2025] The error-banking strategy is optimized, further imporving the stability. See details in [DevLog](docs/DevLog.md)!  
 [10-13-2025] SVI is now fully open-sourced and online!
