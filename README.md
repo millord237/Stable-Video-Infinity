@@ -39,8 +39,6 @@ Technical introduction (unofficial): [AI Papers Slop (English)](https://www.yout
 
 You can watch our 8-minute crazy-version Tom & Jerry video from [Bilibili](https://www.bilibili.com/video/BV17UxPz4Ez1/) or [Youtube](https://www.youtube.com/watch?v=xEgVF3fAZ5o). If you think this project is useful, we would really appreciate your star ⭐, which encourages us to better develop the open-source community! This repository will be continuously maintained. Thank you!
 
-
-
 </div>
 
 **📧 Contact**: [wuyang.li@epfl.ch](mailto:wuyang.li@epfl.ch)
@@ -51,12 +49,14 @@ You can watch our 8-minute crazy-version Tom & Jerry video from [Bilibili](https
 
 We've recently discovered that some users have been incorrectly using SVI workflows. We apologize for any confusion. Please note that **SVI LoRA cannot directly use the original Wan 2.1 workflow** - it requires modified padding settings. 
 
-**Please use our official workflow**: `Stable-Video-Infinity/comfyui_workflow`, which support independent prompts for each video clip. Big thanks to @RuneGjerde, @Kijai, and @Taiwan1912!
+**Please use our official workflow**: `Stable-Video-Infinity/comfyui_workflow`, which supports independent prompts for each video clip. Big thanks to @RuneGjerde, @Kijai, and @Taiwan1912!
 
-Due to the significant impact of quantization and step distillation on the SVI-Film workflow, we currently only open-source the SVI-Shot workflow. Using our official workflow with the test image will generate infinite-length videos without dirfting and forgetting like this: <video src="comfyui_workflow/SVI-Shot-StreamingPrompt.mp4" alt="Test"> 
+Due to the significant impact of quantization and step distillation on the SVI-Film workflow, we currently only open-source the SVI-Shot workflow. Using our official workflow with the test image will generate infinite-length videos without drifting and forgetting like this:
+https://github.com/user-attachments/assets/1fe98993-029e-47c0-abd1-560a4feaff9d
+
 
 ### Some Important To-Checks
-Big, big thanks to @RuneGjerde and @Kijai! If you can’t wait for the official ComfyUI release, try the testing versions of the Shot and Film workflows first with commercial GPUs based on quantization and distll loras: [Here](https://github.com/kijai/ComfyUI-WanVideoWrapper/issues/1519#issuecomment-3447933556). The official one (more stable) might be updated soon. Due to model quantization, the video quality may be affected (Better to try more sampling steps than 4/8). 
+If you can’t wait for the official ComfyUI release, try the testing versions of the Shot and Film workflows first with commercial GPUs based on quantization and distill Loras: [Here](https://github.com/kijai/ComfyUI-WanVideoWrapper/issues/1519#issuecomment-3447933556). The official one (more stable) might be updated soon. Due to model quantization, the video quality may be affected (Better to try more sampling steps than 4/8). 
 
 
 - Please ensure that every video clip uses a different seed.
