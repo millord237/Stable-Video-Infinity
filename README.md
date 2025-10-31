@@ -53,7 +53,7 @@ We've recently discovered that some users have been incorrectly using SVI workfl
 
 **Please use our official workflow**: `Stable-Video-Infinity/comfyui_workflow`, which support independent prompts for each video clip. Big thanks to @RuneGjerde, @Kijai, and @Taiwan1912!
 
-Due to the significant impact of quantization and step distillation on the SVI-Film workflow, we currently only open-source the SVI-Shot workflow. Using our official workflow with the test image will generate infinite-length videos without dirfting and forgetting like this: <img src="assets/test.png" alt="Test"> <video src="assets/SVI-Shot-StreamingPrompt.mp4" alt="Test"> 
+Due to the significant impact of quantization and step distillation on the SVI-Film workflow, we currently only open-source the SVI-Shot workflow. Using our official workflow with the test image will generate infinite-length videos without dirfting and forgetting like this: <video src="comfyui_workflow/SVI-Shot-StreamingPrompt.mp4" alt="Test"> 
 
 ### Some Important To-Checks
 Big, big thanks to @RuneGjerde and @Kijai! If you can’t wait for the official ComfyUI release, try the testing versions of the Shot and Film workflows first with commercial GPUs based on quantization and distll loras: [Here](https://github.com/kijai/ComfyUI-WanVideoWrapper/issues/1519#issuecomment-3447933556). The official one (more stable) might be updated soon. Due to model quantization, the video quality may be affected (Better to try more sampling steps than 4/8). 
