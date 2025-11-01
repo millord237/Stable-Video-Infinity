@@ -51,13 +51,13 @@ We've recently discovered that some users have been incorrectly using SVI workfl
 
 **Please use our official workflow**: `Stable-Video-Infinity/comfyui_workflow`, which supports independent prompts for each video clip. Big thanks to @RuneGjerde, @Kijai, and @Taiwan1912!
 
-Due to the significant impact of quantization and step distillation on the SVI-Film workflow, we currently only open-source the SVI-Shot workflow. Using our official workflow with the test image will generate infinite-length videos without drifting and forgetting like this:
+Due to the significant impact of quantization and step distillation on the SVI-Film workflow, we currently only open-source the SVI-Shot workflow. Using our official workflow will generate infinite-length videos without drifting and forgetting. Below is a 3-minute interactive video demo (distinct prompts for each 5-second video continuation):
 
 
 
 <div align="center">
 
-https://github.com/user-attachments/assets/1fe98993-029e-47c0-abd1-560a4feaff9d
+https://github.com/user-attachments/assets/2498edf4-cdda-4728-b11f-ab5731cf6e20
 
 </div>
 
