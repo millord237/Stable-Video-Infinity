@@ -28,27 +28,27 @@ Technical introduction (unofficial): [AI Papers Slop (English)](https://www.yout
         <img src="assets/youtube1.png" alt="Watch the video" width="100%">
       </a>
       <br>
-      Quaick Galance of SVI Family!
+      Quick Glance at the SVI Family
     </td>
     <td align="center" width="33%">
       <a href="https://www.youtube.com/watch?v=xEgVF3fAZ5o">
         <img src="assets/youtube2.png" alt="Watch the video" width="100%">
       </a>
       <br>
-      8-minute Crazy Tom & Jerry made by SVI-Tom
+      8‑minute crazy Tom & Jerry video made with SVI‑Tom
     </td>
     <td align="center" width="33%">
       <a href="https://www.youtube.com/watch?v=a7Zx5e9ZjK4">
         <img src="assets/youtube3.png" alt="Watch the video" width="100%">
       </a>
       <br>
-      14-minute videos made by SVI-2.0 and SVI-Talk.
+      14‑minute videos made with SVI‑2.0 and SVI‑Talk.
     </td>
   </tr>
 </table>
 </div>
 
-## 🚀 [12-04-2025] Update SVI 2.0 
+## 🚀 [12-04-2025] Update SVI 2.0 (Supporting Wan 2.1 and Wan 2.2)
 
 Try SVI-2.0 for both Wan 2.1 ([main branch](https://github.com/vita-epfl/Stable-Video-Infinity#)) and Wan 2.2 ([svi_wan22 branch](https://github.com/vita-epfl/Stable-Video-Infinity/tree/svi_wan22)), which share the same inference setup with SVI-Shot. Note that workflow should use the same format as SVI-Shot (including the first-frame padding), rather than directly using Pure Wan + LoRA!
 
