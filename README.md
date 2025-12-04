@@ -72,15 +72,16 @@ Note that in this sample, the face still changes slightly with 480p inference (l
     </td>
   </tr>
 </table>
+
 ## ❓ Notification
 
 1. **ComfyUI (Important):** The ComfyUI workflow should use the same format as SVI-Shot (including the first-frame padding), **rather than directly using Wan + LoRA.** We will release the workflow later. See `anchor` in [inference.py](inference.py).
 
-2. **Resolution:** The released model is trained on 480p data. It can be applied to 720p generation to some extent, but the consistency is not as strong as the one trained directly on 720p data.
+2. **Resolution:** The released model is trained on 480p data. It can be applied to 720p generation to some extent, but the consistency is not as strong as that of a model trained directly on 720p data (might be released in the future).
 
-3. **Platform:** Platform: This branch is built on the updated Diffsynth 2.0, so the environment needs to be reconfigured accordingly. P.S. Great thanks to the Diffsynth team for their outstanding codebase maintenance.
+3. **Platform:** This branch is built on the updated Diffsynth 2.0, so the environment needs to be reconfigured accordingly. P.S. Great thanks to the Diffsynth team for their outstanding codebase maintenance.
 
-4. **Training Details:** To enhance dynamics, particularly exit–reenter consistency, we introduce a simple yet effective modification: following the SVI-Shot training setup, we ensure that the randomly sampled padding frame never appears in the currently generated video clips. For example, we may use frames 1–81 for generation and reserve frame 100 exclusively for padding. In addition, we apply strong image augmentation to the first frame to encourage the model to perform restoration guided by the padding (i.e., the anchor).
+4. **Re-implementation Tips:** To enhance dynamics, particularly exit–reenter consistency, we introduce a simple yet effective modification: following the SVI-Shot training setup, we ensure that the randomly sampled padding frame never appears in the currently generated video clips. For example, we may use frames 1–81 for generation and reserve frame 100 exclusively for padding. In addition, we also apply strong image augmentation to the first frame to encourage the model to perform restoration guided by the padding (i.e., the anchor).
 
 </div>
 
