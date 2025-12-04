@@ -19,12 +19,59 @@ Technical introduction (unofficial): [AI Papers Slop (English)](https://www.yout
 </div>
 
 
+
 ## ✨ New Features
 
 1. **Better dynamics:** Compared with the previous version, this SVI model produces more dynamic and natural motion, thanks to the inherent capabilities of Wan 2.2.
 
-2. **Cross-clip consistency:** This version provides a certain level of cross-clip consistency. As shown in the demo, even when a character completely leaves the frame in one clip and reappears several clips later, the model is still able to maintain a reasonable degree of visual consistency.
+2. **Cross-clip consistency:** This version provides a certain level of cross-clip consistency. As shown in the demo, even when a character completely leaves the frame in one clip and reappears several clips later, the model maintains a reasonable degree of visual consistency.
+   
+<table>
+  <tr>
+    <td>
+      <video src="https://github.com/user-attachments/assets/7bdb3120-ec18-4def-9356-49ebf95293f3"
+             controls
+             muted
+             width="100%">
+      </video>
+    </td>
+    <td>
+      <video src="https://github.com/user-attachments/assets/fd88fc44-38e9-4972-ad41-5f384eec8191"
+             controls
+             muted
+             width="100%">
+      </video>
+    </td>
+    <td>
+      <video src="https://github.com/user-attachments/assets/6172b2a0-7f77-490e-9fd2-2f372aba936a"
+             controls
+             muted
+             width="100%">
+      </video>
+    </td>
+  </tr>
+</table>
 
+Note that in this sample, the face still changes slightly with 480p inference (left). This can be relieved with 720p (right), but will be very slow.
+
+<table>
+  <tr>
+    <td>
+      <video src="https://github.com/user-attachments/assets/cb621493-b07f-4215-9bfe-2481dc68b849"
+             controls
+             muted
+             width="100%">
+      </video>
+    </td>
+    <td>
+      <video src="https://github.com/user-attachments/assets/2da29344-00b3-4100-a043-f7ede5f8d339"
+             controls
+             muted
+             width="100%">
+      </video>
+    </td>
+  </tr>
+</table>
 ## ❓ Notification
 
 1. **ComfyUI (Important):** The ComfyUI workflow should use the same format as SVI-Shot (including the first-frame padding), **rather than directly using Wan + LoRA.** We will release the workflow later. See `anchor` in [inference.py](inference.py).
@@ -33,7 +80,7 @@ Technical introduction (unofficial): [AI Papers Slop (English)](https://www.yout
 
 3. **Platform:** Platform: This branch is built on the updated Diffsynth 2.0, so the environment needs to be reconfigured accordingly. P.S. Great thanks to the Diffsynth team for their outstanding codebase maintenance.
 
-4. **Training Details:** To enhance dynamics, particularly exist–reenter consistency, we introduce a simple yet effective modification: following the SVI-Shot training setup, we ensure that the randomly sampled padding frame never appear in the currently generated video clips. For example, we may use frames 1–81 for generation and reserve frame 100 exclusively for padding. In addition, we apply strong image augmentation to the first frame to encourage the model to perform restoration guided by the padding (i.e., the anchor).
+4. **Training Details:** To enhance dynamics, particularly exit–reenter consistency, we introduce a simple yet effective modification: following the SVI-Shot training setup, we ensure that the randomly sampled padding frame never appears in the currently generated video clips. For example, we may use frames 1–81 for generation and reserve frame 100 exclusively for padding. In addition, we apply strong image augmentation to the first frame to encourage the model to perform restoration guided by the padding (i.e., the anchor).
 
 </div>
 
