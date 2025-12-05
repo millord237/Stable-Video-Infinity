@@ -90,7 +90,35 @@ Note that in this sample, the face still changes slightly with 480p inference (l
 
 ## 🔧 Environment Setup
 
-The original docs of diffsynth 2.0 is [here](docs/README.md).
+The original docs of diffsynth 2.0 is [here](docs/README.md). We recently found two phenomenon. We have recently observed two phenomena:
+
+1. Using different PyTorch versions leads to different results even when using the same random seed. Our current environment uses torch==2.7.1.
+
+2. It is necessary to install flash_attn; otherwise, severe artifacts will appear. The default Diffsynth installation does not include this step by default. Details see below. Left: w/o flash_att. Right: w. flahs_att
+
+<table>
+  <tr>
+    <td>
+      <video src="https://github.com/user-attachments/assets/3ca98188-a4cf-40a5-b359-5e04664880ba"
+             controls
+             muted
+             width="100%">
+      </video>
+    </td>
+    <td>
+      <video src="https://github.com/user-attachments/assets/b59b6b8d-63f8-4584-b25e-286c4dc3feb6"
+             controls
+             muted
+             width="100%">
+      </video>
+    </td>
+  </tr>
+</table>
+
+
+
+
+
 
 
 ```bash
@@ -99,7 +127,12 @@ git clone https://github.com/vita-epfl/Stable-Video-Infinity.git -b svi_wan22
 conda create -n svi_wan22 python=3.10 
 conda activate svi_wan22
 
+pip install torch==2.7.1 torchvision==0.22.1 torchaudio==2.7.1 --index-url https://download.pytorch.org/whl/cu128
+
 pip install -e .
+
+pip install flash_attn==2.8.0.post2
+
 ```
 
 
