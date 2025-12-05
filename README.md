@@ -114,11 +114,13 @@ pip install -e .
 # login with your fine-grained token
 huggingface-cli login
 huggingface-cli download vita-video-gen/svi-model --local-dir ./models/Stable-Video-Infinity --include "version-2.0/SVI_Wan2.2-I2V-A14B_high_noise_lora_v2.0.safetensors"
-huggingface-cli download vita-video-gen/svi-model --local-dir ./models/Stable-Video-Infinity --include "version-2.0/SVI_Wan2.2-I2V-A14B_low_noise_lora_v2.0.safetensors"
 
+huggingface-cli download vita-video-gen/svi-model --local-dir ./models/Stable-Video-Infinity --include "version-2.0/SVI_Wan2.2-I2V-A14B_low_noise_lora_v2.0.safetensors"
 ```
 
 ## 🎮 Play with Wan 2.2-SVI
+
+By using the following command, SVI should be able to generate the [demo video](assets/demo_480p.mp4).
 
 ```bash
 # This is consistent with SVI-Shot
