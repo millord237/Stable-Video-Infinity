@@ -94,19 +94,19 @@ The original docs of diffsynth 2.0 is [here](docs/README.md). We recently found 
 
 1. Using different PyTorch versions leads to different results even when using the same random seed. Our current environment uses torch==2.7.1.
 
-2. It is necessary to install flash_attn; otherwise, severe artifacts will appear. The default Diffsynth installation does not include this step by default. Details see below. Left: w/o flash_att. Right: w. flahs_att
+2.  It is necessary to install `flash_attn`; otherwise, severe artifacts and instability will appear. The official Diffsynth installation does not include this step, so we are sorry for missing this at first. See details below. Left: without `flash_attn` &nbsp;&nbsp;|&nbsp;&nbsp; Right: with `flash_attn`. Without `flash_attn`, noticeable artifacts appear around the mouth at **16 seconds**.
 
 <table>
   <tr>
     <td>
-      <video src="https://github.com/user-attachments/assets/3ca98188-a4cf-40a5-b359-5e04664880ba"
+      <video src="https://github.com/user-attachments/assets/636c24dd-2bc2-4427-a920-a6bac99c33d1"
              controls
              muted
              width="100%">
       </video>
     </td>
     <td>
-      <video src="https://github.com/user-attachments/assets/b59b6b8d-63f8-4584-b25e-286c4dc3feb6"
+      <video src="https://github.com/user-attachments/assets/c81dc495-55f6-422c-964e-aa7e98826460"
              controls
              muted
              width="100%">
