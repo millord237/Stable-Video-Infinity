@@ -19,12 +19,11 @@ Technical introduction (unofficial): [AI Papers Slop (English)](https://www.yout
 </div>
 
 
-
 ## ✨ New Features
 
 1. **Better dynamics:** Compared with the previous version, this SVI model produces more dynamic and natural motion, thanks to the inherent capabilities of Wan 2.2.
 
-2. **Cross-clip consistency:** This version provides a certain level of cross-clip consistency. As shown in the demo, even when a character completely leaves the frame in one clip and reappears several clips later, the model maintains a reasonable degree of visual consistency.
+2. **Cross-clip consistency:** This version provides a certain level of cross-clip consistency. As shown in the demo, your cat is still your cat: Even when a character completely leaves the frame in one clip and reappears several clips later, the model maintains a reasonable degree of visual consistency.
    
 <table>
   <tr>
@@ -34,6 +33,7 @@ Technical introduction (unofficial): [AI Papers Slop (English)](https://www.yout
              muted
              width="100%">
       </video>
+      <p align="center">Your cat is still your cat</p>
     </td>
     <td>
       <video src="https://github.com/user-attachments/assets/fd88fc44-38e9-4972-ad41-5f384eec8191"
@@ -41,6 +41,7 @@ Technical introduction (unofficial): [AI Papers Slop (English)](https://www.yout
              muted
              width="100%">
       </video>
+      <p align="center">Your dog can run anywhere</p>
     </td>
     <td>
       <video src="https://github.com/user-attachments/assets/6172b2a0-7f77-490e-9fd2-2f372aba936a"
@@ -48,6 +49,7 @@ Technical introduction (unofficial): [AI Papers Slop (English)](https://www.yout
              muted
              width="100%">
       </video>
+      <p align="center">Your baby is still your baby</p>
     </td>
   </tr>
 </table>
@@ -75,13 +77,15 @@ Note that in this sample, the face still changes slightly with 480p inference (l
 
 ## ❓ Notification
 
-1. **ComfyUI (Important):** The ComfyUI workflow should use the same format as SVI-Shot (including the first-frame padding), **rather than directly using Wan + LoRA.** We will release the workflow later. See `anchor` in [inference.py](inference.py).
+1. **ComfyUI (Important):** The ComfyUI workflow should use the same format as SVI-Shot (including the first-frame padding), **rather than directly using Wan + LoRA.** We will release the workflow later. See `anchor` in [inference.py](https://github.com/vita-epfl/Stable-Video-Infinity/blob/3dd547724ee781c6c1775aa88e60090b47e18d0d/inference.py#L108C24-L108C36) and in [wan_video_svi.py](https://github.com/vita-epfl/Stable-Video-Infinity/blob/svi_wan22/diffsynth/pipelines/wan_video_svi.py#L467); these are the two key differences compared with the conventional Wan 2.2 pipeline. Without this, SVI can still generate videos, but it cannot ensure consistency.
+You can use the demo sample to quickly check whether it has been set up correctly: if the woman returns with a similar appearance, then it’s working correctly; if it returns a completely different person, then there is an issue with this part of the deployment.
 
-2. **Resolution:** The released model is trained on 480p data. It can be applied to 720p generation to some extent, but the consistency is not as strong as that of a model trained directly on 720p data (might be released in the future).
 
-3. **Platform:** This branch is built on the updated Diffsynth 2.0, so the environment needs to be reconfigured accordingly. P.S. Great thanks to the Diffsynth team for their outstanding codebase maintenance.
+3. **Resolution:** The released model is trained on 480p data. It can be applied to 720p generation to some extent, but the consistency is not as strong as that of a model trained directly on 720p data (might be released in the future).
 
-4. **Re-implementation Tips:** To enhance dynamics, particularly exit–reenter consistency, we introduce a simple yet effective modification: following the SVI-Shot training setup, we ensure that the randomly sampled padding frame never appears in the currently generated video clips. For example, we may use frames 1–81 for generation and reserve frame 100 exclusively for padding. In addition, we also apply strong image augmentation to the first frame to encourage the model to perform restoration guided by the padding (i.e., the anchor).
+4. **Platform:** This branch is built on the updated Diffsynth 2.0, so the environment needs to be reconfigured accordingly. P.S. Great thanks to the Diffsynth team for their outstanding codebase maintenance.
+
+5. **Re-implementation Tips:** To enhance dynamics, particularly exit–reenter consistency, we introduce a simple yet effective modification: following the SVI-Shot training setup, we ensure that the randomly sampled padding frame never appears in the currently generated video clips. For example, we may use frames 1–81 for generation and reserve frame 100 exclusively for padding. In addition, we also apply strong image augmentation to the first frame to encourage the model to perform restoration guided by the padding (i.e., the anchor).
 
 </div>
 
@@ -90,7 +94,7 @@ Note that in this sample, the face still changes slightly with 480p inference (l
 
 ## 🔧 Environment Setup
 
-The original docs of diffsynth 2.0 is [here](docs/README.md). We recently found two phenomenon. We have recently observed two phenomena:
+The original docs of diffsynth 2.0 is [here](docs/README.md). We have recently observed two phenomena:
 
 1. Using different PyTorch versions leads to different results even when using the same random seed. Our current environment uses torch==2.7.1.
 
@@ -116,11 +120,6 @@ The original docs of diffsynth 2.0 is [here](docs/README.md). We recently found 
 </table>
 
 
-
-
-
-
-
 ```bash
 git clone https://github.com/vita-epfl/Stable-Video-Infinity.git -b svi_wan22
 
@@ -132,7 +131,6 @@ pip install torch==2.7.1 torchvision==0.22.1 torchaudio==2.7.1 --index-url https
 pip install -e .
 
 pip install flash_attn==2.8.0.post2
-
 ```
 
 
@@ -146,6 +144,7 @@ pip install flash_attn==2.8.0.post2
 ```bash
 # login with your fine-grained token
 huggingface-cli login
+
 huggingface-cli download vita-video-gen/svi-model --local-dir ./models/Stable-Video-Infinity --include "version-2.0/SVI_Wan2.2-I2V-A14B_high_noise_lora_v2.0.safetensors"
 
 huggingface-cli download vita-video-gen/svi-model --local-dir ./models/Stable-Video-Infinity --include "version-2.0/SVI_Wan2.2-I2V-A14B_low_noise_lora_v2.0.safetensors"
@@ -169,6 +168,42 @@ CUDA_VISIBLE_DEVICES=0 python inference.py \
     --num_clips 10 
 ```
 
+If you experience the slow download speed from Modelscope, you can manually download the models from Huggingface and organize them as follows:
+
+```bash
+models/
+ ├── DiffSynth-Studio/
+ │   └── Wan-Series-Converted-Safetensors/
+ │       ├── models_t5_umt5-xxl-enc-bf16.safetensors
+ │       └── Wan2.1_VAE.safetensors
+ ├── Stable-Video-Infinity/
+ │   └── version-2.0/
+ │       ├── SVI_Wan2.2-I2V-A14B_high_noise_lora_v2.0.safetensors
+ │       └── SVI_Wan2.2-I2V-A14B_low_noise_lora_v2.0.safetensors
+ └── Wan-AI/
+     ├── Wan2.1-T2V-1.3B/
+     │   └── google/
+     │       └── umt5-xxl/
+     │           ├── special_tokens_map.json
+     │           ├── spiece.model
+     │           ├── tokenizer_config.json
+     │           └── tokenizer.json
+     └── Wan2.2-I2V-A14B/
+         ├── high_noise_model/
+         │   ├── diffusion_pytorch_model-00001-of-00006.safetensors
+         │   ├── diffusion_pytorch_model-00002-of-00006.safetensors
+         │   ├── diffusion_pytorch_model-00003-of-00006.safetensors
+         │   ├── diffusion_pytorch_model-00004-of-00006.safetensors
+         │   ├── diffusion_pytorch_model-00005-of-00006.safetensors
+         │   └── diffusion_pytorch_model-00006-of-00006.safetensors
+         └── low_noise_model/
+             ├── diffusion_pytorch_model-00001-of-00006.safetensors
+             ├── diffusion_pytorch_model-00002-of-00006.safetensors
+             ├── diffusion_pytorch_model-00003-of-00006.safetensors
+             ├── diffusion_pytorch_model-00004-of-00006.safetensors
+             ├── diffusion_pytorch_model-00005-of-00006.safetensors
+             └── diffusion_pytorch_model-00006-of-00006.safetensors
+```
 
 ## ❤️ Citation
 
