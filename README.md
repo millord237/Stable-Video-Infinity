@@ -1,3 +1,4 @@
+
 <div align="center">
 
 <p align="center">
@@ -74,6 +75,18 @@ Note that in this sample, the face still changes slightly with 480p inference (l
     </td>
   </tr>
 </table>
+
+## 😀 ComfyUI Users
+
+**Please use our preview workflow**: `Stable-Video-Infinity/comfyui_workflow`!
+
+Below is a video demo based on the released test sample:
+
+<div align="center">
+
+[https://github.com/vita-epfl/Stable-Video-Infinity/blob/svi_wan22/comfyui_workflow/SVI-Wan22-1207.mp4](https://github.com/user-attachments/assets/03c82aa8-81d0-47b1-893d-0e5c836c3804)
+
+</div>
 
 ## ❓ Notification
 
