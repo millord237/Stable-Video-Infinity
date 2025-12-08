@@ -80,13 +80,30 @@ Note that in this sample, the face still changes slightly with 480p inference (l
 
 **Please use our preview workflow**: `Stable-Video-Infinity/comfyui_workflow`!
 
-Below is a video demo based on the released test sample:
+The cfg value in the original inference setting is typically 5. However, due to the acceleration components integrated within the ComfyUI workflow, the cfg value cannot be maintained consistently. Consequently, we have adjusted and fixed the cfg at 1.5. 
 
-<div align="center">
+**For improved textual alignment, you may slightly increase the cfg value within the recommended range of 1 to 2.** 
 
-[https://github.com/vita-epfl/Stable-Video-Infinity/blob/svi_wan22/comfyui_workflow/SVI-Wan22-1207.mp4](https://github.com/user-attachments/assets/03c82aa8-81d0-47b1-893d-0e5c836c3804)
+The following demos compares the results generated with cfg=1 and cfg=2.
 
-</div>
+<table>
+  <tr>
+    <td>
+      <video src="https://github.com/user-attachments/assets/198aeeeb-a719-49a0-8977-3f1b9f3a9e47"
+             controls
+             muted
+             width="100%">
+      </video>
+    </td>
+    <td>
+      <video src="https://github.com/user-attachments/assets/16709d84-fd05-4c7f-a1e1-633a856e3dbb"
+             controls
+             muted
+             width="100%">
+      </video>
+    </td>
+  </tr>
+</table>
 
 ## ❓ Notification
 
