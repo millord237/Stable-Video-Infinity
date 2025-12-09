@@ -80,12 +80,13 @@ Note that in this sample, the face still changes slightly with 480p inference (l
 
 **Please use our preview workflow**: `Stable-Video-Infinity/comfyui_workflow`!
 
-The cfg value in the original inference setting is typically 5. However, due to the acceleration components integrated within the ComfyUI workflow, the cfg value cannot be maintained consistently. Consequently, we have adjusted and fixed the cfg at 1.5. 
+## ⚠️ Tips for Generating Better Long Videos
 
 **For improved textual alignment, you may consider the following crtical aspects.**
 
 1. **Slightly increase the CFG value**  
-   Try slightly increasing the CFG value within the recommended range of **1–2** to strengthen how much the model follows the text.
+   Try slightly increasing the CFG value within the recommended range of **1–2** to strengthen how much the model follows the text. The cfg value in the original inference setting is typically 5. However, due to the acceleration components integrated within the ComfyUI workflow, the cfg value cannot be maintained consistently. Consequently, we have adjusted and fixed the cfg at 1.5. 
+
 
 
 2. **Prompt enhancement**  
@@ -93,11 +94,12 @@ The cfg value in the original inference setting is typically 5. However, due to 
 
 
 3. **Check and match the aspect ratio**  
-   Since our model is trained at **480×832 (horizontal)**, it does **not** perform very well in text-following when you use very different aspect ratios (e.g., vertical), especially when the frame is filled with a full-body person (though the stability is still good). This often leads to weaker motion/dynamics and a stronger tendency to “snap back” to the reference image. Therefore, it’s better to **outpaint the input image to 480×832** (or a very similar horizontal ratio). This adjustment can make a significant difference in both motion and text-following quality. In practice, as discussed in the [Issue comment](https://github.com/vita-epfl/Stable-Video-Infinity/issues/35#issuecomment-3632223811), outpainting the reference image to match the training aspect ratio greatly reduces reference-image reappearing and improves overall behavior.
+   Since our model is trained at **480×832 (horizontal)**, it does **not** perform very well in text-following when you use very different aspect ratios (e.g., vertical), especially when the frame is filled with a full-body person (though the stability is still good). This often leads to weaker motion/dynamics and a stronger tendency to “snap back” to the reference image. Therefore, it’s better to **outpaint the input image to 480×832** (or a very similar horizontal ratio). This adjustment can make a significant difference in both motion and text-following quality. In practice, as discussed in the [Issue](https://github.com/vita-epfl/Stable-Video-Infinity/issues/35#issuecomment-3633842068), outpainting the reference image to match the training aspect ratio greatly reduces reference-image reappearing and improves overall behavior.
 
+4. **Use high-quality input image**
+   It’s better to ensure the first frame is high quality, since it also serves as the anchor that guides all subsequent generations.
 
-
-The following demos compares the results generated with cfg=1 and cfg=2.
+The following demo compares the results generated with cfg=1 and cfg=2 (one-shot generation without cherry-picking).
 
 <table>
   <tr>
@@ -118,7 +120,30 @@ The following demos compares the results generated with cfg=1 and cfg=2.
   </tr>
 </table>
 
-## ❓ Notification
+The following demo compares the results generated with origin (worse text-following and reference-image returning) and new aspect ratios (one-shot generation without cherry-picking).
+
+<table>
+  <tr>
+    <td>
+      <video src="https://github.com/user-attachments/assets/d4df2ee8-ec64-4566-913c-1ea9d73209a6"
+             controls
+             muted
+             width="100%">
+      </video>
+    </td>
+    <td>
+      <video src="https://github.com/user-attachments/assets/eb436248-2636-445d-851a-de2a66986f9c"
+             controls
+             muted
+             width="100%">
+      </video>
+    </td>
+  </tr>
+</table>
+
+
+
+## 📢 Notification
 
 1. **ComfyUI (Important):** The ComfyUI workflow should use the same format as SVI-Shot (including the first-frame padding), **rather than directly using Wan + LoRA.** We will release the workflow later. See `anchor` in [inference.py](https://github.com/vita-epfl/Stable-Video-Infinity/blob/3dd547724ee781c6c1775aa88e60090b47e18d0d/inference.py#L108C24-L108C36) and in [wan_video_svi.py](https://github.com/vita-epfl/Stable-Video-Infinity/blob/svi_wan22/diffsynth/pipelines/wan_video_svi.py#L467); these are the two key differences compared with the conventional Wan 2.2 pipeline. Without this, SVI can still generate videos, but it cannot ensure consistency.
 You can use the demo sample to quickly check whether it has been set up correctly: if the woman returns with a similar appearance, then it’s working correctly; if it returns a completely different person, then there is an issue with this part of the deployment.
