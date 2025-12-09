@@ -84,6 +84,8 @@ The cfg value in the original inference setting is typically 5. However, due to 
 
 **For improved textual alignment, you may slightly increase the cfg value within the recommended range of 1 to 2.** 
 
+Besides, there is trade-off in the control signals between the text and the reference frame. If you don’t explicitly instruct the model with strong enough prompts, it will, by default, follow the posture in the reference frame. To tackle this, you can try increasing the text CFG scale and refining the text prompt with prompt enhancement. As shown in the demo3 video, “Your dog can run anywhere,” if the prompts are well designed, the model can generate relatively large dynamics without returning to the reference frame. Thanks this [Issue](https://github.com/vita-epfl/Stable-Video-Infinity/issues/35#issuecomment-3632223811) for pointing out this!
+
 The following demos compares the results generated with cfg=1 and cfg=2.
 
 <table>
