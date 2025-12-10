@@ -80,6 +80,16 @@ Note that in this sample, the face still changes slightly with 480p inference (l
 
 **Please use our preview workflow**: `Stable-Video-Infinity/comfyui_workflow`!
 
+### [12-10-2025] Important Notes on Using LightX2V with SVI
+
+
+We just found that the LightX2V LoRA scale has a significant impact to SVI.
+
+With the default value of 1.0, we see clearly worse dynamics and text-following compared to runs with a reduced scale in specific samples. However, lowering the LightX2V LoRA weight will also affect the generation quality when using 4/8-step sampling. So this may be a trade-off: **it’s better to try reducing this value first if seeing poor text-following, weak dynamics, or the reference frame reappearing (0.6 seems to be a good option for this sample).** According to our experience, if your input samples are highly photorealistic (not AI-generated), the default LightX2V scale can work well. Otherwise, you may need to consider reducing this value. More comparisons can be found below for the AI-generated first frame.
+
+https://github.com/user-attachments/assets/bbf9be6c-b357-474f-acd5-8e617d18c8e8
+
+
 ## ⚠️ Tips for Generating Better Long Videos
 
 **For improved textual alignment, you may consider the following crtical aspects.**
@@ -87,13 +97,11 @@ Note that in this sample, the face still changes slightly with 480p inference (l
 1. **Slightly increase the CFG value**  
    Try slightly increasing the CFG value within the recommended range of **1–2** to strengthen how much the model follows the text. The cfg value in the original inference setting is typically 5. However, due to the acceleration components integrated within the ComfyUI workflow, the cfg value cannot be maintained consistently. Consequently, we have adjusted and fixed the cfg at 1.5. 
 
-
-
 2. **Prompt enhancement**  
    There is an inherent trade-off between the control signal from the text and from the reference frame. If you don’t give the model **clear and strong enough prompts**, it will **by default** follow the pose/posture in the reference frame. To address this, you can refine and strengthen your text prompts (prompt enhancement). As shown in the demo3 video, *“Your dog can run anywhere,”* when the prompts are well designed, the model can produce relatively large motion/dynamics **without snapping back to the reference frame**. Many thanks to this [Issue](https://github.com/vita-epfl/Stable-Video-Infinity/issues/35#issuecomment-3632223811) for highlighting this!
 
 
-3. **Check and match the aspect ratio**  
+3. **[12-09-2025] Check and match the aspect ratio**  
    Since our model is trained at **480×832 (horizontal)**, it does **not** perform very well in text-following when you use very different aspect ratios (e.g., vertical), especially when the frame is filled with a full-body person (though the stability is still good). This often leads to weaker motion/dynamics and a stronger tendency to “snap back” to the reference image. Therefore, it’s better to **outpaint the input image to 480×832** (or a very similar horizontal ratio). This adjustment can make a significant difference in both motion and text-following quality. In practice, as discussed in the [Issue](https://github.com/vita-epfl/Stable-Video-Infinity/issues/35#issuecomment-3633842068), outpainting the reference image to match the training aspect ratio greatly reduces reference-image reappearing and improves overall behavior.
 
 4. **Use high-quality input image**
