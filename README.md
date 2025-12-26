@@ -22,10 +22,11 @@ Technical introduction (unofficial): [AI Papers Slop (English)](https://www.yout
 
 ## ✨ New Features
 
-1. **Better dynamics:** Compared with the Wan 2.1 version, this SVI produces more dynamic and natural motion, thanks to the inherent capabilities of Wan 2.2.
+1. **Better dynamics:** Compared with the Wan 2.1 version, SVI 2.0 Pro produces more dynamic and natural motion, thanks to the inherent capabilities of Wan 2.2.
 
 2. **Cross-clip consistency:** This version provides a certain level of cross-clip consistency. As shown in the demo, your cat is still your cat: Even when a character completely leaves the frame in one clip and reappears several clips later, the model maintains a reasonable degree of visual consistency.
-   
+
+SVI 2.0 Gallery
 <table>
   <tr>
     <td>
@@ -55,6 +56,88 @@ Technical introduction (unofficial): [AI Papers Slop (English)](https://www.yout
   </tr>
 </table>
 
+SVI 2.0 Pro Gallery
+- More dynamic and expressive motions  
+- Support for a wider range of scene transitions
+- More interesting
+
+<table>
+  <tr>
+    <td>
+      <video src="https://github.com/user-attachments/assets/e6d270ab-6992-4b60-a12a-6512b2e5dd33"
+             controls
+             muted
+             width="100%">
+      </video>
+    </td>
+    <td>
+      <video src="https://github.com/user-attachments/assets/6070774e-f4fd-4194-ad7c-731859239395"
+             controls
+             muted
+             width="100%">
+      </video>
+    </td>
+    <td>
+      <video src="https://github.com/user-attachments/assets/4709eb7c-ac4c-4c12-a4f0-20a91d2a64ad"
+             controls
+             muted
+             width="100%">
+      </video>
+    </td>
+  </tr>
+</table>
+
+
+
+<table>
+  <tr>
+    <td>
+      <video src="https://github.com/user-attachments/assets/cfc630aa-ee03-4909-ad81-1dac85b63c99"
+             controls
+             muted
+             width="100%">
+      </video>
+    </td>
+    <td>
+      <video src="https://github.com/user-attachments/assets/231cff4e-fd22-415e-ab50-fc996e3160e7"
+             controls
+             muted
+             width="100%">
+      </video>
+    </td>
+    <td>
+      <video src="https://github.com/user-attachments/assets/1c829fe1-550c-4075-8a6c-419b232c1c85"
+             controls
+             muted
+             width="100%">
+      </video>
+    </td>
+  </tr>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ## 🚀 News about Wan 2.2-based SVI
 
 - **[26 Dec 2025] SVI 2.0 Pro Released:** More details can be found [svi_2.0_pro.md](docs/svi/svi_2.0_pro.md).
@@ -64,7 +147,7 @@ Technical introduction (unofficial): [AI Papers Slop (English)](https://www.yout
 
 <table>
   <tr>
-    <td>
+    <td width="50%">
       <video src="https://github.com/user-attachments/assets/7bdb3120-ec18-4def-9356-49ebf95293f3"
              controls
              muted
@@ -72,7 +155,7 @@ Technical introduction (unofficial): [AI Papers Slop (English)](https://www.yout
       </video>
       <p align="center">SVI 2.0</p>
     </td>
-    <td>
+    <td width="50%">
       <video src="https://github.com/user-attachments/assets/231cff4e-fd22-415e-ab50-fc996e3160e7"
              controls
              muted
@@ -80,7 +163,6 @@ Technical introduction (unofficial): [AI Papers Slop (English)](https://www.yout
       </video>
       <p align="center">SVI 2.0 Pro</p>
     </td>
-    <td>
   </tr>
 </table>
 
