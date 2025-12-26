@@ -62,6 +62,28 @@ Technical introduction (unofficial): [AI Papers Slop (English)](https://www.yout
 - **[4 Dec 2025] SVI 2.0 Released**  
  
 
+<table>
+  <tr>
+    <td>
+      <video src="https://github.com/user-attachments/assets/7bdb3120-ec18-4def-9356-49ebf95293f3"
+             controls
+             muted
+             width="100%">
+      </video>
+      <p align="center">SVI 2.0</p>
+    </td>
+    <td>
+      <video src="https://github.com/user-attachments/assets/231cff4e-fd22-415e-ab50-fc996e3160e7"
+             controls
+             muted
+             width="100%">
+      </video>
+      <p align="center">SVI 2.0 Pro</p>
+    </td>
+    <td>
+  </tr>
+</table>
+
 ## 😀 ComfyUI Users
 
 - **[26 Dec 2025] SVI 2.0 Pro**: We have redesigned some core components of SVI 2.0 Pro, so this version is no longer compatible with the original workflow. More details can be found [svi_2.0_pro.md](docs/svi/svi_2.0_pro.md).
