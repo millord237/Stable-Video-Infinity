@@ -48,13 +48,28 @@ Technical introduction (unofficial): [AI Papers Slop (English)](https://www.yout
 </table>
 </div>
 
-## 🚀 [12-04-2025] Update SVI 2.0 (Supporting Wan 2.1 and Wan 2.2)
+
+
+
+## 🚀 [26 Dec 2025 News] Update SVI 2.0 Pro for Wan 2.2
+
+
+- [main (this branch)](https://github.com/vita-epfl/Stable-Video-Infinity#): SVI using Wan 2.1 base model (both SVI 1.0/2.0)
+
+- [svi_wan22 branch](https://github.com/vita-epfl/Stable-Video-Infinity/tree/svi_wan22): SVI using Wan 2.2 base model (both SVI 2.0/2.0 Pro)
+
+
+What is our next release? Wan 2.2 Animate SVI. We found that tuning with only 1k samples is sufficient to unlock infinite-length generation for Wan 2.2 Animate, and we are trying to scale up now. The performance is far better than our original SVI-Dance based on UniAnimate-DiT. 
+
+
+
+<!-- ## 🚀 [12-04-2025] Update SVI 2.0 (Supporting Wan 2.1 and Wan 2.2)
 
 Try SVI-2.0 for both Wan 2.1 ([main branch](https://github.com/vita-epfl/Stable-Video-Infinity#)) and Wan 2.2 ([svi_wan22 branch](https://github.com/vita-epfl/Stable-Video-Infinity/tree/svi_wan22)), which share the same inference setup with SVI-Shot. Note that workflow should use the same format as SVI-Shot (including the first-frame padding), rather than directly using Pure Wan + LoRA! We have just released an initial version in the `svi_wan22` branch (12-07-2025), built on the **WanVideoWrapper ComfyUI workflow**. A native ComfyUI workflow is currently under deployment.
 
 SVI-2.0 is a unified version: it inherits the motion dynamics of SVI-Film while retaining the stability of SVI-Shot. For example, it enables controllable exit–reenter character attributes and supports subtle scene transitions within a shot.
 
-What is our next release? Wan 2.2 Animate SVI! We found that tuning with only 1k samples is sufficient to unlock infinite-length generation for Wan 2.2 Animate, and we are trying to scale up now. The performance is far better than our original SVI-Dance based on UniAnimate-DiT.
+What is our next release? Wan 2.2 Animate SVI! We found that tuning with only 1k samples is sufficient to unlock infinite-length generation for Wan 2.2 Animate, and we are trying to scale up now. The performance is far better than our original SVI-Dance based on UniAnimate-DiT. -->
 
 ## ✨ Highlight
 
@@ -64,7 +79,7 @@ What is our next release? Wan 2.2 Animate SVI! We found that tuning with only 1k
 - **Infinite Length**: No inherent limit on video duration; generate arbitrarily long stories (see the 10‑minute “Tom and Jerry” demo).
 - **Versatile**: Supports diverse in-the-wild generation tasks: multi-scene short films, single‑scene animations, skeleton-/audio-conditioned generation, cartoons, and more.
 - **Efficient**: Only LoRA adapters are tuned, requiring very little training data: anyone can make their own SVI easily.
-- 
+
 </div>
 
 **📧 Contact**: [wuyang.li@epfl.ch](mailto:wuyang.li@epfl.ch)
@@ -103,7 +118,7 @@ Thank you for playing with SVI!
 
 ## 🔥 News
 
-
+- [12-26-2025] SVI-2.0 Pro released!
 - [12-07-2025] SVI-2.0 WanVideoWrapper ComfyUI workflow (native ComfyUI workflow is under deployment)
 - [12-04-2025] SVI-2.0 released, supporting both Wan 2.1 and Wan 2.2
 - [10-31-2025] Official SVI-Shot ComfUI workflow! 
