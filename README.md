@@ -20,6 +20,30 @@ Technical introduction (unofficial): [AI Papers Slop (English)](https://www.yout
 </div>
 
 
+
+We really appreciate the beautiful videos created by [@RuneGjerde](https://github.com/RuneGjerde) using SVI!
+
+<table>
+  <tr>
+    <td width="50%">
+      <video src="https://github.com/user-attachments/assets/568edfc7-5aaf-4f9a-ba21-9226e161a227"
+             controls
+             muted
+             width="100%">
+      </video>
+    </td>
+    <td width="50%">
+      <video src="https://github.com/user-attachments/assets/a5a23659-90fb-475f-bfff-6b08ea67d294"
+             controls
+             muted
+             width="100%">
+      </video>
+    </td>
+  </tr>
+</table
+
+
+
 ## ✨ New Features
 
 1. **Better dynamics:** Compared with the Wan 2.1 version, SVI 2.0 Pro produces more dynamic and natural motion, thanks to the inherent capabilities of Wan 2.2.
@@ -114,25 +138,6 @@ SVI 2.0 Pro Gallery
     </td>
   </tr>
 </table>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
