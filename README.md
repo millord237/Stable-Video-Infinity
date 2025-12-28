@@ -117,19 +117,6 @@ Please don’t hesitate to share your SVI creations with us! thank you!
 </table>
 
 
-https://github.com/user-attachments/assets/6529f0da-27e8-4010-b66b-ccb79b7a4c3e
-
-
-
-
-
-
-
-
-
-
-
-
 What is our next release? Wan 2.2 Animate SVI. We found that tuning with only 1k samples is sufficient to unlock infinite-length generation for Wan 2.2 Animate, and we are trying to scale up now. The performance is far better than our original SVI-Dance based on UniAnimate-DiT. 
 
 
