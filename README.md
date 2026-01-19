@@ -63,6 +63,10 @@ Thanks to many enthusiastic community users who keep creating and updating vario
 - **Enhance prompts & reduce LightX2V usgae & use more optimal resolution (480p) to relieve slow motion.**
 - **Avoid using the wrong SVI 1.0 workflow in this repo.**
 
+###  Community Deployment
+
+SVI-2.0 Pro is now available on the Poe platform! You can access it through the Poe chat interface or integrate it via their API. Check it out here [link](https://poe.com/SVI-2.0-Pro). ❤️ Big thanks to [@empiriolabsai](https://empiriolabs.ai/) for their support!
+
 ### Some Community Workflow Tutorials
 
 Really appreciate the attention from community Youtubers and Bilibili creators.
@@ -285,6 +289,7 @@ Thank you for playing with SVI!
 
 ## 🔥 News
 
+- [01-17-2025] SVI-2.0 Pro is available on the Poe platform! see [link](https://poe.com/SVI-2.0-Pro). Thanks [@empiriolabsai](https://empiriolabs.ai/)!
 - [12-26-2025] SVI-2.0 Pro released!
 - [12-07-2025] SVI-2.0 WanVideoWrapper ComfyUI workflow (native ComfyUI workflow is under deployment)
 - [12-04-2025] SVI-2.0 released, supporting both Wan 2.1 and Wan 2.2
